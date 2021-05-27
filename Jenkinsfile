@@ -1,7 +1,7 @@
 node{
 
-   def tomcatWeb = 'C:\\Tomcat-8.5.33\\webapps'
-   def tomcatBin = 'C:\\Tomcat-8.5.33\\bin'
+   def tomcatWeb = 'C:\\apache-Tomcat-8.5.66\\webapps'
+   def tomcatBin = 'C:\\apache-Tomcat-8.5.66\\bin'
    def tomcatStatus = ''
    stage('SCM Checkout'){
      git 'https://github.com/cubeiplKumar/JenkinsPipelineDemo.git'
@@ -23,10 +23,10 @@ node{
                )
 '''
    }*/
-   stage('Deploy to Tomcat'){
-     bat "copy target\\JenkinsPipeline.war \"${tomcatWeb}\\JenkinsPipeline.war\""
+   stage('Deploy to apache-Tomcat'){
+     bat "copy target\\JenkinsPipeline.war \"${apache-tomcatWeb}\\JenkinsPipeline.war\""
    }
-      stage ('Start Tomcat Server') {
+      stage ('Start apache-Tomcat Server') {
          sleep(time:5,unit:"SECONDS") 
          bat "${tomcatBin}\\startup.bat"
          sleep(time:100,unit:"SECONDS")
